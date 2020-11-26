@@ -1,15 +1,94 @@
 <!DOCTYPE html>
 
 <html lang="en">
-	<head>
-	  <meta charset="utf-8">
-	  <title>Template</title>
-	  <link rel="stylesheet" href="styles.css">
-	</head>
+
+<head>
+    <meta charset="utf-8">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
 
 <body>
+    <header>
+        <div class="highScore">View Highscores</div>
+        <div class="timer">Time:</div>
+    </header>
+
+    <div class="container" id="quizContainer">
+        <div class="row">
+
+            <!-- DISPLAYING GAME INFO -->
+            <div class="col-lg-12" id="info_container">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Coding Quiz Challenge</h1>
+                        <hr>
+                        <p class="card-text">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit. Doloremque debitis dignissimos,
+                            reprehenderit suscipit ea natus dolorum quod repudiandae animi
+                            recusandae nihil ipsam repellendus voluptate quas eveniet libero
+                            rem aliquam! Fuga.
+                        </p>
+                        <hr>
+                        <button type="button" class="btn btn-dark" id="start_button">Start Quiz</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTIONS CONTAINER -->
+            <div class="col-lg-12 hide" id="question_container">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title" id="question_insert">Question</h1>
+                        <button class="btn btn-dark btn" id="choice_1">Choice 1</button>
+                        <button class="btn btn-dark btn" id="choice_2">Choice 2</button>
+                        <button class="btn btn-dark btn" id="choice_3">Choice 3</button>
+                        <button class="btn btn-dark btn" id="choice_4">Choice 4</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INITIALS CONTAINER -->
+            <div class="col-lg-12 hide" id="initials_container">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="message"></div>
+                        <div id="score"></div>
+                        <div id="correct"></div>
+                        <div id="incorrect"></div>
+                        <br>
+                        <div id="initials">
+                            <form>
+                                Enter initials:<input type="text" placeholder="Enter initials here" id="userInput">
+                                <input type="button" id="submit_initials">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIGHSCORE PAGE -->
+            <div class="col-lg-12 hide" id="highscore_container">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 id="hsTitle">Highscores</h1>
+                        <hr id="win" />
+                        <ul id="hsArray"></ul>
+                        <div>
+                            <button type="button" id="back_button">Back</button>
+                            <button type="button" id="clear_highscores_button">Clear Highscores</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
 </body>
 
 <script type="text/javascript" src="script.js"></script>
+
 </html>
