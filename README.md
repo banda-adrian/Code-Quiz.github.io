@@ -1,4 +1,4 @@
-# Code-Quiz.github.io
+# Code-Quiz 
 
 ## Table of Contents
 * [Introduction](#introduction) 
