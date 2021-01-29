@@ -1,3 +1,25 @@
+li {
+    list-style-type: none;
+}
+
+a:link, a:visited {
+    color: black;
+  }
+
 .hide {
     display: none;
 }
+
+.btn-dark {
+    margin: 5px; 
+}
+
+.timer {
+    float: right;
+}
+
+#popUP {
+    font-style: bold;
+    font-size: 40;
+}
+

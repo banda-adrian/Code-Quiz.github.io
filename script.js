@@ -1,147 +1,127 @@
-// Submit Buttons
-var startButton = document.getElementById('start_button')
-var backButton = document.getElementById('back_button')
-var clearHsButton = document.getElementById('clear_highscores_button')
-var submitInitials = document.getElementById('submit_initials')
+// Containers
+var infoContainer = document.getElementById("infoContainer");
+var questionContainer = document.getElementById("questionContainer");
+var completeContainer = document.getElementById("completeContainer");
+var highscoreContainer = document.getElementById("highscoreContainer");
 
-//Containers
-var infoContainer = document.getElementById('info_container')
-var questionContainer = document.getElementById('question_container')
-var initialContainer = document.getElementById('initials_container')
-var highscoreContainer = document.getElementById('highscore_container')
+//Question, Answer Choices
+var question = document.getElementById("question");
 
-//Choice Buttons 
-var questionInsert = document.getElementById('question_insert')
-var choice1 = document.getElementById('choice_1')
-var choice2 = document.getElementById('choice_2')
-var choice3 = document.getElementById('choice_3')
-var choice4 = document.getElementById('choice_4')
+var answerChoiceOne = document.getElementById("answerChoiceOne");
+var answerChoiceTwo = document.getElementById("answerChoiceTwo");
+var answerChoiceThree = document.getElementById("answerChoiceThree");
+var answerChoiceFour = document.getElementById("answerChoiceFour");
 
-//EventListeners
-startButton.addEventListener('click', startGame)
+var popUP = document.getElementById("popUP");
 
-//Funtctions
-function startGame(){
-    console.log('Start Button Clicked')
-    infoContainer.classList.add('hide')
-    questionContainer.classList.remove('hide')
-    nextQuestion();
-}
-
-function nextQuestion() {
-    console.log('Next function running');
-    // for (var i = 0; i < questions.length; i++) {
-    //     console.log(questions[i]);
-    // }
-    choice1.innerHTML = questions[0].choices[0].text;
-    choice2.innerHTML = questions[0].choices[1].text;
-    choice3.innerHTML = questions[0].choices[2].text;
-    choice4.innerHTML = questions[0].choices[3].text;
-
-    if (choice1.onclick){
-        console.log(true);
-    } else {
-        console.log(false);
-    }
-
-}
-
-// function answerSelect() {
-//     if (answer chosen === true){
-//         nextQuestion
-//     } else if (end of loop){
-//         initialContainer.classList
-//     }
-
-// }
+var questionIndex = 0;
 
 //Questions
-var questions = [
-    //console.log(questions[0]);
-    {
-        question: 'INSERT QUESTION 1',
-        choices: [
-            {text: 'INSERT CHOICE 1', correct: true},
-            {text: 'INSERT CHOICE 2', correct: false},
-            {text: 'INSERT CHOICE 3', correct: false},
-            {text: 'INSERT CHOICE 4', correct: false},
-        ]
-
-    },
-    //console.log(questions[1]);
-    {
-        question: 'INSERT QUESTION 2',
-        choices: [
-            {text: 'INSERT CHOICE 1', correct: true},
-            {text: 'INSERT CHOICE 2', correct: false},
-            {text: 'INSERT CHOICE 3', correct: false},
-            {text: 'INSERT CHOICE 4', correct: false},
-        ]
-
-    },
-    //console.log(questions[2]);
-    {
-        question: 'INSERT QUESTION 3',
-        choices: [
-            {text: 'INSERT CHOICE 1', correct: true},
-            {text: 'INSERT CHOICE 2', correct: false},
-            {text: 'INSERT CHOICE 3', correct: false},
-            {text: 'INSERT CHOICE 4', correct: false},
-        ]
-
-    },
-    //console.log(questions[3]);
-    {
-        question: 'INSERT QUESTION 4',
-        choices: [
-            {text: 'INSERT CHOICE 1', correct: true},
-            {text: 'INSERT CHOICE 2', correct: false},
-            {text: 'INSERT CHOICE 3', correct: false},
-            {text: 'INSERT CHOICE 4', correct: false},
-        ]
-
-    },
+var quizQuestions = [
+  {
+    "question": "Question 1",
+    "choiceOne": "1.Correct",
+    "choiceTwo": "2.False",
+    "choiceThree": "3.False",
+    "choiceFour": "4.False",
+    "correct": "1.Correct",
+  },
+  {
+    "question": "Question 2",
+    "choiceOne": "1.Correct",
+    "choiceTwo": "2.False",
+    "choiceThree": "3.False",
+    "choiceFour": "4.False",
+    "correct": "1.Correct",
+  },
+  {
+    "question": "Question 3",
+    "choiceOne": "1.Correct",
+    "choiceTwo": "2.False",
+    "choiceThree": "3.False",
+    "choiceFour": "4.False",
+    "correct": "1.Correct",
+  },
+  {
+    "question": "Question 4",
+    "choiceOne": "1.Correct",
+    "choiceTwo": "2.False",
+    "choiceThree": "3.False",
+    "choiceFour": "4.False",
+    "correct": "1.Correct",
+  }
 ]
 
-//Things to do
-/*
-> if button chosn === true THEN move onto next question
-> Once all questions have been answered SHOW initials 'page' THEN 
-submit to LocalStorage AND show hihgscores
+hideContainers();
 
-> Timer ... 
-IF time runs out GAME OVER -> SHOW initials page -> highscore page
-subtract 5s if button chosen === false  
+function hideContainers() {
+  questionContainer.classList.add('hide')
+  completeContainer.classList.add('hide')
+}
 
-> Score ...
-Keep track of score
-subtract if needed
+startBtn.addEventListener("click", startQuiz)
 
-> Currently figuring out
-How to insert questions array into Questions Container buttons
+function startQuiz() {
+  infoContainer.classList.add('hide')
+  questionContainer.classList.remove('hide')
+}
 
-*/
+function showQuestions() {
+  var q = quizQuestions[questionIndex];
 
+  question.innerHTML = q.question;
+  answerChoiceOne.innerHTML = q.choiceOne;
+  answerChoiceOne.setAttribute("data-answer", q.choiceOne);
+  answerChoiceTwo.innerHTML = q.choiceTwo;
+  answerChoiceTwo.setAttribute("data-answer", q.choiceTwo);
+  answerChoiceThree.innerHTML = q.choiceThree;
+  answerChoiceThree.setAttribute("data-answer", q.choiceThree);
+  answerChoiceFour.innerHTML = q.choiceFour;
+  answerChoiceFour.setAttribute("data-answer", q.choiceFour);
+}
 
+showQuestions();
+answerChoiceOne.addEventListener("click", event => {
+  checkAnswer(event);
+})
+answerChoiceTwo.addEventListener("click", event => {
+  checkAnswer(event);
+})
+answerChoiceThree.addEventListener("click", event => {
+  checkAnswer(event);
+})
+answerChoiceFour.addEventListener("click", event => {
+  checkAnswer(event);
+})
 
+function checkAnswer(event) {
+  event.preventDefault();
 
+  var answer = event.currentTarget.dataset.answer;
+  var correctAnswer = null;
 
+  if (quizQuestions[questionIndex].correct === answer) {
+    correctAnswer = answer;
+  }
 
+  if (answer === correctAnswer) {
+    popUP.textContent = "Correct!"; // when correct, says correct
+  } else {
+    popUP.textContent = "Wrong! Try again"; // when wrong deducts 10 points
+    if (wrong < 0) {
+      wrong = 0;
+    }
+  }
+  if (quizQuestions.length === questionIndex + 1) {
+    showCompleteContainer();
+    return;
+  }
+  questionIndex++;
 
+  showQuestions();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function showCompleteContainer() {
+  questionContainer.classList.add('hide')
+  completeContainer.classList.remove('hide')
+}
