@@ -12,6 +12,8 @@ A quiz application that will track your time/answers and give you your score.
 ## Demo Images
 
 ![screenshot](images/index.png) 
+![screenshot](images/index2.png) 
+![screenshot](images/index3.png) 
 
 ## Contact
 If you want to contact me you can reach me at banda_adrian@outlook.com
